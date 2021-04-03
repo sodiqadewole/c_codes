@@ -3,7 +3,29 @@
 #include<stdio.h>
 #include<string.h>
 
-struct Courses
+// struct Courses
+// {
+//     char website[50];
+//     char subject[50];
+//     int price;
+// };
+
+// void main()
+// {
+//     struct Courses C;
+
+//     // initialization
+//     strcpy(C.website, "www.sodiq.in");
+//     strcpy(C.subject, "The C programming language");
+//     C.price = 100;
+
+//     // print
+//     printf("Website : %s\n", C.website);
+//     printf("Subject : %s\n", C.subject);
+//     printf("Price : $%d\n", C.price);
+// }
+
+union Courses
 {
     char website[50];
     char subject[50];
@@ -12,7 +34,7 @@ struct Courses
 
 void main()
 {
-    struct Courses C;
+    union Courses C;
 
     // initialization
     strcpy(C.website, "www.sodiq.in");
@@ -21,6 +43,6 @@ void main()
 
     // print
     printf("Website : %s\n", C.website);
-    printf("Subject : %s\n", C.subject);
-    printf("Price : $%d\n", C.price);
+    printf("Book title : %s\n", C.subject);
+    printf("Book Price : $%d\n", C.price);
 }
