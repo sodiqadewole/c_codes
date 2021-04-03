@@ -25,24 +25,26 @@
 //     printf("Price : $%d\n", C.price);
 // }
 
-union Courses
+typedef union Courses
 {
     char website[50];
     char subject[50];
     int price;
-};
+} uni;
 
 void main()
 {
-    union Courses C;
+    uni Courses;
 
     // initialization
-    strcpy(C.website, "www.sodiq.in");
-    strcpy(C.subject, "The C programming language");
-    C.price = 100;
+    strcpy(Courses.website, "www.sodiq.in"); // string copy (dest, source)
+    strcpy(Courses.subject, "The C programming language");
+    // C.website = "www.sodiq";
+    // C.subject = "This subject";
+    Courses.price = 100;
 
     // print
-    printf("Website : %s\n", C.website);
-    printf("Book title : %s\n", C.subject);
-    printf("Book Price : $%d\n", C.price);
+    printf("Website : %s\n", Courses.website);
+    printf("Book title : %s\n", Courses.subject);
+    printf("Book Price : $%d\n", Courses.price);
 }
