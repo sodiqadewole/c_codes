@@ -155,3 +155,75 @@ It first tries to open a text file infor.txt as read-only mode.
 Then as the file gets opened successfully to read, it initiates the while loop.
 The iteration continues until all the statement/lines of your text file get to read as well as displayed.
 Lastly, you have to close the file.*/
+
+
+//Errors
+/* Divided By zero Error i.e. Exception*/#include <stdio.h>
+#include <stdlib.h>
+
+void main() {
+   int ddend = 60;
+   int dsor = 0;
+   int q;
+
+   if( dsor == 0){
+      fprintf(stderr, "Division by zero! Exiting...\n");
+      getch();
+      exit(-1);
+   }
+   q = ddend / dsor;
+   fprintf(stderr, "Value of quotient : %d\n", q);
+   getch();
+   exit(0);
+}
+
+In C, you can state the size of your structure (struct) or union members in the form of bits. This concept is to because of efficiently utilizing the memory when you know that your amount of a field or collection of fields is not going to exceed a specific limit or is in-between the desired range.
+
+Let us take a situation of C program, which contains a number having TRUE/FALSE variables clustered together in structure form name as decided:
+
+struct {
+  unsigned int haveTime;
+  unsigned int haveSpace;
+}
+decided
+The above structure involves 8-bytes of memory space, but you need to hold either 0 or 1 for each of the above variables. The C language presents an enhanced way of utilizing the memory space in such condition.
+
+When implementing such variables within a structure, you can implicitly characterize the width of a variable that tells the compiler to exercise only that specific number of bytes. The above structure code snippet can be written associating bit field as:
+
+struct {
+  unsigned int haveTime: 1;
+  unsigned int haveSpace: 1;
+}
+decided;
+The above code snippet (structure program) involves 4 bytes of memory space for the status variable, but only 2 bits will be used for storing the values.
+
+So in your above example, the structure has occupied 4 bytes of memory for a decided variable, but only 2 bits will be implemented for storing the values.
+
+Variables that are defined using a predefined width or size are called bit fields. This bit field can leave more than a single bit. The format and syntax of bit-field declaration inside a structure is something like this:
+
+struct {
+  data - type[nameofmember]: width_of_Bit - field;
+};
+data-type: defines the data type which establishes how a bit-field's value will be represented and interpreted. The data type can be of simple integer, signed integer, or unsigned integer.
+
+nameofmember: defines the name of the bit-field member within the structure
+
+width_of_Bit-field: specifies the number of bits required in the bit-field. It is to be noted that the width of the bit-field should have to be lesser than or at least equal to the width of the specified type.
+
+struct example_bitField {
+  int val1;
+  int val2;
+};
+
+struct example_bitField2 {
+  int val1: 1;
+  int val2: 1;
+};
+
+int main(void) {
+  printf(" \n Size of memory engaged by example_bitField : %zu ", sizeof(struct example_bitField));
+  printf(" \n Size of memory engaged by example_bitField2: %zu ", sizeof(example_bitField2));
+  return 0;
+}
+Size of memory engaged by example_bitField : 8
+Size of memory engaged by example_bitField2 : 4
